@@ -1,12 +1,19 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
 <body>
-<h1>ログイン画面</h1>
+<h1>Login</h1>
 <form method="POST">
     {% csrf_token %}
     <p>ID<input type="text" name="ID"><p>
     <p>パスワード<input type="text" name="password"></p>
-    <p><input type="submit" value="ログイン"></p>
+    <button id="id_login_btn" name="loginbtn" type="submit">ログイン</button>
+    <p>テキスト</p>
 </form>
 </body>
 </html>

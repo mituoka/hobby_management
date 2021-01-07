@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
+<body>
+    <div name="headArea_Login" class="headArea_Login">
+        <div name="title_Area">
+        <h1>メニュー画面</h1>
+        </div>
+    </div>
+    aaaa
+    <div name="content_Area" class="content_Area">
+        <form method="POST">
+            {% csrf_token %}
+        </form>
+    </div>
+</body>
+</html>
