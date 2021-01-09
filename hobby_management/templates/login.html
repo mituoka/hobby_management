@@ -7,13 +7,18 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     </head>
 <body>
-<h1>Login</h1>
-<form method="POST">
-    {% csrf_token %}
-    <p>ID<input type="text" name="ID"><p>
-    <p>パスワード<input type="text" name="password"></p>
-    <button id="id_login_btn" name="loginbtn" type="submit">ログイン</button>
-    <p>テキスト</p>
-</form>
+    
+    <div name="headArea_Login" class="headArea_Login">
+        <h1>Login</h1>
+    </div>
+
+    <div name="content_Area" class="content_Area">
+        <form method="POST">
+            {% csrf_token %}
+            <p>ID<input type="text" name="ID"><p>
+            <p>パスワード<input type="text" name="password"></p>
+            <button id="login_btn" type="submit">ログイン</button>  
+        </form>
+    </div>
 </body>
 </html>

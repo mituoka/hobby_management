@@ -1,3 +1,16 @@
 
-p{font-size:20px;
-color:aqua};
+body{
+    background-image: url("../image/background.jpg");
+}
+
+#login_btn{
+    display: inline-block;
+}
+
+.headArea_Login{
+    text-align: center;
+}
+
+.content_Area{
+    text-align: center;
+}
