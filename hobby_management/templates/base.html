@@ -1,0 +1,25 @@
+
+{% load static %}
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% block header %}
+    <div class="header_Area">
+        <img id='Icon_bottom'src="{% static 'image/icon.jpg'%}" alt="Icon" title="Icon">
+        <div id='title_name'>Hobby Management</div>       
+        <img id='Account_bottom'src="{% static 'image/account.jpg'%}" alt="Icon" title="Account">
+    </div>
+    {% endblock header %}
+    {% block footer %}
+    <div class="fotter_bottom_Area">
+            <div id='fotter_twitter_bottom' class='fotter_bottom'>
+                <p>twitter</p>
+            </div>
+            <div id='fotter_Line_bottom' class='fotter_bottom'>
+                <p>Line</p>
+            </div>
+    </div>
+    {% endblock footer %}
+<html>
