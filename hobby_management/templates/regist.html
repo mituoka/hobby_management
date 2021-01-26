@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+<body>
+    {% block content %}
+    <div name="headArea_Login" class="headArea_Login">
+        <div name="title_Area">
+        <h1>投稿画面</h1>
+        </div>
+    </div>
+    <div name="content_Area" class="content_Area">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div id=’category_name’>
+                <p>カテゴリー<input type='text' name='category_name'></p>
+            </div>
+            <div id='title_of_work'>
+                <p>作品名<input type='text' name='title_name'></p>
+            </div>
+            <div id='Image_file'>
+                <p>画像ファイル<input type="file" name='image_file' /></p>
+            </div>
+            <div id='comment'>
+                <p>コメント<input type='text' name='comment'></p>
+            </div>
+            <button id="regist_submit_bottom" class="com_bottom" type="submit">登録</button> 
+        </form>
+    </div>
+    {% endblock content %}
+</body>
+</html>
