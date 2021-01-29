@@ -40,8 +40,6 @@ INSTALLED_APPS = [
     'django_cleanup',
     'imagekit',
     'main_app',
-    'menu_app',
-    'regist_app'
 ]
 
 MIDDLEWARE = [

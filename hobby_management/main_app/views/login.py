@@ -26,7 +26,6 @@ def main_login(request):
             
             if user is not None:
                 login(request, user)
-                print('fsfsfsfs')
                 return redirect('menu')
             else:
                 params['message']='対象のユーザーが存在しません'
