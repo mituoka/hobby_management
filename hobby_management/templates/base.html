@@ -5,6 +5,9 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% block script %}
+    {% endblock script %}
+        <script type="text/javascript" src="{% static 'javascript/com_pro.js' %}"></script>
     {% block header %}
     <div class="header_Area">
         <img id='Icon_bottom'src="{% static 'image/icon.jpg'%}" alt="Icon" title="Icon">
@@ -17,13 +20,13 @@
     {% endblock %}
 
     {% block footer %}
-    <div class="fotter_bottom_Area">
+    <!-- <div class="fotter_bottom_Area">
             <div id='fotter_twitter_bottom' class='fotter_bottom'>
                 <p>twitter</p>
             </div>
             <div id='fotter_Line_bottom' class='fotter_bottom'>
                 <p>Line</p>
             </div>
-    </div>
+    </div> -->
     {% endblock footer %}
 <html>
