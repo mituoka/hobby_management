@@ -1,0 +1,9 @@
+<div id='image_list_area' class='image_list_area'>
+    {% for item in object_list %}
+        <diV class='image_list'>
+            <div class="title_Area">タイトル:{{ item.title_name }}</div>
+            <div class="image_Area"><img src="{{ item.image_file.url}}" width="500" height="350"/></div>
+            <div class="comment_Area">{{ item.comment | linebreaksbr}}</div>
+        </diV>
+    {% endfor %}
+</div>
