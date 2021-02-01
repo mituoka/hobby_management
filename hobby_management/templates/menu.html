@@ -3,6 +3,7 @@
 
 {% block script %}
     <script type="text/javascript" src="{% static 'javascript/menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jquery/jquery-3.5.1.min.js' %}"></script>
 {% endblock script %}
 
 {% block style %}
@@ -12,26 +13,17 @@
 
 {% block content %}
     <div class="category_selection_area">
-        {% for item in object_list %}
-            <div id="category_selection{{ item.id }}" onclick="Change_category(number='category_selection{{ item.id }}');"  class="category_selection_bottom">{{ item.title_name }}</div>
-        {% endfor %}
-        <div class="category_add_bottom">+</div>
-    </div>
+    {% for item in categry_list %}
+        <div id="category_selection{{ item.id }}" onclick="Change_category(number='{{ item }}');" value='{{ item }}' class="category_selection_bottom">{{ item }}</div>
+    {% endfor %}
+    </div>>
 
 
     <div name="content_Area" class="content_Area">
         <div class="top_image_area">
             <p>Hobby Management</p>
-        </div>        
-        <div class='image_list_area'>
-            {% for item in object_list %}
-                <diV class='image_list'>
-                    <div class="title_Area">タイトル:{{ item.title_name }}</div>
-                    <div class="image_Area"><img src="{{ item.image_file.url}}" width="500" height="350"/></div>
-                    <div class="comment_Area">{{ item.comment | linebreaksbr}}</div>
-                </diV>
-            {% endfor %}
         </div>
+        {% include 'list.html' %}        
         <div class='bottom_area'>
             <form method="POST">
                 {% csrf_token %}
