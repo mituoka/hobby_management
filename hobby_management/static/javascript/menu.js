@@ -7,24 +7,17 @@ function Change_category(category_name){
     // Call Python function
 	$.ajax({
 	    headers: {'X-CSRFToken': csrfToken},
-        url: 'test_ajax_app',
+        url: 'search_category',
 		method: 'POST',
 		data: {
-			'category_name'       : category_name,
-            
+			'category_name'       : category_name,   
         },
 		success: function(data) {
-            console.log(data.hoge);
             // Success callback
-            console.log('==============');
-			console.log('成功');
-            
 			$('#image_list_area').replaceWith(data.html);
 		},
 		error: function(err) {
-            console.log(hoge.hoge);
 			// Fail callback
-			console.log('失敗');
 		}
 	});
 }
@@ -43,4 +36,31 @@ function getCookie(name) {
         }
     }
     return cookieValue;
+}
+
+function delete_image(image_id){
+    console.log(543534);
+    console.log(image_id);
+
+    // csrfToken
+	const csrfToken = getCookie('csrftoken');
+    // Call Python function
+	$.ajax({
+	    headers: {'X-CSRFToken': csrfToken},
+        url: 'delete_image',
+		method: 'POST',
+		data: {
+			'image_id'       : image_id,   
+        },
+		success: function(data) {
+            // Success callback
+            // $('#image_list_area').replaceWith(data.html);
+            window.location.reload();
+            alert('データを削除しました')
+		},
+		error: function(err) {
+			// Fail callback
+		}
+	});
+
 }

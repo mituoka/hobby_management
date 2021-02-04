@@ -1,0 +1,26 @@
+
+
+.regist_form_area{
+    width: 200px;
+    height: 200px;
+    margin-top: 5%;
+    margin-left: 40%;
+    font-family: 'Vollkorn', serif;
+}
+
+.regist_text{
+    margin-top: 10px;
+}
+
+#id_category_name, #id_heading_name{
+    width: 280px;
+    height: 16px;
+    border-radius: 10px;
+}
+
+#id_comment{
+    width: 280px;
+    height: 256px;
+    border-radius: 10px;
+}
+

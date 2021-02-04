@@ -1,30 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
 
-<body>
-    {% block content %}
-    <div name="headArea_Login" class="headArea_Login">
-        <div name="title_Area">
-        <h1>投稿画面</h1>
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/com_style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/regist.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <div name="content_Area" class="content_Area">
+        <div class='regist_form_area'>
+            <h1>{{title}}</h1>
+            <form div method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p><div id=’category_name’ class='regist_text'>{{category}}{{form.category_name}}</div></p>
+                <p><div id='heading_name' class='regist_text'>{{heading_name}}{{form.heading_name}}</div></p>
+                <p><div id='image_file' class='regist_text'>{{image_file}}{{form.image_file}}</div></p>
+                <p><div id='comment' class='regist_text'>{{comment}}{{form.comment}}</div></p>
+                <button id="regist_submit_bottom" class="com_bottom" type="submit">{{regist}}</button> 
+            </form>
         </div>
     </div>
-    <div name="content_Area" class="content_Area">
-        <form method="POST" action="">
-            {% csrf_token %}
-            <div id=’category_name’>
-                <p>カテゴリー<input type='text' name='category_name'></p>
-            </div>
-            <div id='title_of_work'>
-                <p>作品名<input type='text' name='title_name'></p>
-            </div>
-            <div id='Image_file'>
-                <p>画像ファイル<input type="file" name='image_file' /></p>
-            </div>
-            <div id='comment'>
-                <p>コメント<input type='text' name='comment'></p>
-            </div>
-            <button id="regist_submit_bottom" class="com_bottom" type="submit">登録</button> 
-        </form>
-    </div>
-    {% endblock content %}
-</body>
-</html>
+{% endblock content %}

@@ -1,46 +1,32 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from ..models import Image
+from .form import regist_form as form_class
+# import imghdr
 
 # Create your views here.
 @login_required
 def regist_main(request):
     
     params = {
-        'a':'1',
+        'title':'投稿画面',
+        'category':'カテゴリー',
+        'heading_name':'見出し名',
+        'image_file':'画像ファイル',
+        'comment':'コメント',
+        'regist':'登録',
+        'form':form_class.regist_form(),
     }
 
     print("regist_main成功")
     if (request.method == 'POST'):
-        print(30)
-        category_name=request.POST["category_name"]
-        title_name=request.POST["title_name"]
-        image_file=request.POST["image_file"]
-        comment=request.POST["comment"]
-        
-        print(category_name)
-        print(title_name)
-        print(image_file)
-        print(comment)
+        _category_name=request.POST["category_name"]
+        _title_name=request.POST["heading_name"]
+        _image_file=request.FILES["image_file"]
+        _comment=request.POST["comment"]
 
-        # DBにデータを登録する
+        Image.objects.create(category_name=_category_name,title_name=_title_name,image_file=_image_file,comment=_comment)
 
-        # object_list = User.objects.all()
-        # object_list = User.objects.get(username='test')
-        # username=request.POST['username']
-        # password=request.POST['password']
-        # print(username)
-        # print(password)
-        # try:
-        #     user = User.objects.create_user(username,'', password)
-        # except :
-        #     params[message] = '対象のユーザーが見つかりません'
-        #     return redirect('login')
-
-        # if user is not None:
-        #     login(request, user)
-        #     return redirect('menu')
-        # else:
-        #     return redirect('login')
-
-
-    return render(request, 'regist.html',params)
+        return redirect('menu')
+    
+    return render(request,'regist.html',params)

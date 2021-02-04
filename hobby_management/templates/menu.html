@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block script %}
     <script type="text/javascript" src="{% static 'javascript/menu.js' %}"></script>
@@ -7,28 +8,27 @@
 {% endblock script %}
 
 {% block style %}
-
+<link rel="stylesheet" type="text/css" href="{% static 'css/com_style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 {% endblock style %}
 
 
 {% block content %}
-    <div class="category_selection_area">
-    {% for item in categry_list %}
-        <div id="category_selection{{ item.id }}" onclick="Change_category(number='{{ item }}');" value='{{ item }}' class="category_selection_bottom">{{ item }}</div>
-    {% endfor %}
-    </div>>
-
-
     <div name="content_Area" class="content_Area">
-        <div class="top_image_area">
-            <p>Hobby Management</p>
-        </div>
-        {% include 'list.html' %}        
-        <div class='bottom_area'>
-            <form method="POST">
-                {% csrf_token %}
-                <a href="{% url 'logout' %}">ログアウト</a>
-            </form>
+        <div id='menu_area' class="menu_area">
+            <div class="category_selection_area">
+                {% for item in categry_list %}
+                    <div id="category_selection{{ item.id }}" onclick="Change_category(number='{{ item }}');" value='{{ item }}' class="category_selection_bottom">{{ item }}</div>
+                {% endfor %}
+                <div class='regist_linl_area'>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <a href ="{% url 'regist' %}" class="regist_link">{{add_image_bottom}}</a>
+                    </form>
+                </div>
+            </div>
+            {% include 'list.html' %}        
         </div>
     </div>
 {% endblock content %}

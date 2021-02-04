@@ -1,10 +1,12 @@
 {% load static %}
-
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/com_style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+        <script type="text/javascript" src="{% static 'javascript/login.js' %}"></script>
     </head>
 <body>
     <div>
@@ -13,13 +15,12 @@
                 <h1>Login</h1>
                 <form method="POST">
                     {% csrf_token %}
-                    <p>ユーザー名<input type="text" name="username"><p>
-                    <p>パスワード<input type="text" name="password"></p>
-                    <button id="login_btn"　class="com_bottom" type="submit">ログイン</button>  
+                    <div id='username_area' class='login_txt'>{{username}}{{ form.username }}</div>
+                    <div id='password_area'class='login_txt'>{{password}}{{ form.password }}</div>
+                    <button id="login_btn"　class="com_bottom" type="submit">{{login_bottom}}</button>  
                 </form>
                 <div class="message_area" >
-                    <h3>メッセージ表示エリア</h3>
-                    <h3>{{message}}</h3>
+                    <div class='err_message'>{{message}}</div>
                 </div>
             </div>
         </div> 

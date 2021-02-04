@@ -5,15 +5,20 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    {% block style %}
+    {% endblock style %}
     {% block script %}
     {% endblock script %}
         <script type="text/javascript" src="{% static 'javascript/com_pro.js' %}"></script>
     {% block header %}
     <div class="header_Area">
-        <img id='Icon_bottom'src="{% static 'image/icon.jpg'%}" alt="Icon" title="Icon">
-        <div id='title_name'>Hobby Management</div>       
-        <!-- <div class="app_detail">このアプリについて<div> -->
-        <img id='Account_bottom'src="{% static 'image/account.jpg'%}" alt="Icon" title="Account">
+        <img id='Icon_bottom'src="{% static 'image/logo.jpg'%}" alt="Icon" title="Icon">
+        <div id='title_name' class='title_name'>Hobby Management</div>       
+        <div id='header_bottom_area' class='header_bottom_area'>
+            <a href="{% url 'app_detail' %}" id='app_detail_link' class='app_detail_link' >アプリ詳細</a>        
+            <a href="{% url 'logout' %}" id='logout_link' class='logout_link' >ログアウト</a>    
+        </div>
     </div>
     {% endblock header %}
 
